@@ -4,9 +4,9 @@
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
  -->
-<html>
+<html ng-app="hindsight">
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Hindsight</title>
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
@@ -15,7 +15,7 @@
       #status {
         /* avoid an excessively wide status text */
         white-space: pre;
-        text-overflow: ellipsis;
+        /*text-overflow: ellipsis;*/
         /*overflow: hidden;*/
         width: 1000px;
       }
@@ -30,11 +30,13 @@
     <script src="angular.min.js"></script>
     <script src="popup.js"></script>
   </head>
-  <body>
+
+  <body ng-controller="TabsController">
     <div id="status">
-      <span>{{ }}</span>
+      <div ng-repeat="tab in tabs">
+        <h6>{{ tabs[0].url }}</h6>
+      </div>
     </div>
-    
   </body>
 </html>
 
